@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { SearchContext } from "../provider/SearchContext";
 
 const Pagination: React.FC = () => {
-  const { page, setPage, limit, setLimit, getPlaces, totalItems } =
+  const { page, setPage, limit, setLimit, totalItems } =
     useContext(SearchContext)!;
 
   const [inputLimit, setInputLimit] = useState<number>(limit);
@@ -25,7 +25,6 @@ const Pagination: React.FC = () => {
     // Set the limit and trigger API call
     if (inputLimit <= 10) {
       setLimit(inputLimit);
-      getPlaces(); // Trigger API call
     } else {
       alert("Please enter a value between 1 and 10");
     }
@@ -55,6 +54,11 @@ const Pagination: React.FC = () => {
           type="number"
           value={inputLimit}
           onChange={handleLimitChange}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearchClick();
+            }
+          }}
           min={1}
           max={10}
           className="limit-input"
