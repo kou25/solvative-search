@@ -1,10 +1,14 @@
-import "./App.css";
+import SearchBox from "./components/SearchBox";
+import Table from "./components/Table";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <main>
+      <div className="main-wrapper">
+        <SearchBox />
+        <Table />
+      </div>
+    </main>
   );
 }
 
