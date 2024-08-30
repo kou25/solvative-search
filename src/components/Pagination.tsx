@@ -1,7 +1,4 @@
 import React, { useContext, useState } from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { SearchContext } from "../provider/SearchContext";
 
 const Pagination: React.FC = () => {
@@ -62,11 +59,10 @@ const Pagination: React.FC = () => {
           max={10}
           className="limit-input"
         />
-        <FontAwesomeIcon
-          icon={faSearch}
-          className="search-icon"
-          onClick={handleSearchClick}
-        />
+        <span className="search-icon" onClick={handleSearchClick}>
+          {" "}
+          🔍{" "}
+        </span>
       </div>
     </div>
   );
